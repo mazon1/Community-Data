@@ -362,8 +362,8 @@ def Lookerstudio():
 
 # Main App Logic
 def main():
-    st.sidebar.title("Community Data App")
-    app_page = st.sidebar.radio("Select a page", ["Dashboard", "EDA", "ML Modeling" , "ML Modeling(Type)","Community Mapping", "Small Community Mapping","Looker Studio"])
+    st.sidebar.title("Kijiji Community App")
+    app_page = st.sidebar.radio("Select a Page", ["Dashboard", "EDA", "ML Modeling" , "ML Modeling(Type)","Community Mapping", "Small Community Mapping","Lookerstudio"])
 
     if app_page == "Dashboard":
         dashboard()
