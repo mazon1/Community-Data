@@ -249,14 +249,11 @@ def machine_learning_modeling():
         </div>
         """, unsafe_allow_html=True)
 
+
     # Chat Box
     st.subheader("Have questions? Ask our Assistant!")
-    # chatbot_url = "https://hf.co/chat/assistant/667243280bd00bfb78366ccb"
-    # st.markdown(f'<iframe src="{chatbot_url}" width="500" height="500"></iframe>', unsafe_allow_html=True)
-    chatbot_url = "https://chatgpt.com/g/g-nNFl60CHs-community-rental-guide"
-    st.markdown(f"""
-        <iframe src="{chatbot_url}" width="100%" height="600" frameborder="0" allow="clipboard-write; clipboard-read"></iframe>
-    """, unsafe_allow_html=True)
+    chatbot_url = "https://hf.co/chat/assistant/6618ba66044cc6a08eefa689"
+    st.markdown(f'<iframe src="{chatbot_url}" width="500" height="500"></iframe>', unsafe_allow_html=True)
 
 def machine_learning_page():
     st.title("Rental Type Prediction")
@@ -302,10 +299,6 @@ def machine_learning_page():
     st.subheader("Have questions? Ask our Assistant!")
     chatbot_url = "https://hf.co/chat/assistant/6618ba66044cc6a08eefa689"
     st.markdown(f'<iframe src="{chatbot_url}" width="500" height="500"></iframe>', unsafe_allow_html=True)
-    # chatbot_url = "https://chatgpt.com/g/g-nNFl60CHs-community-rental-guide"
-    # st.markdown(f"""
-    #     <iframe src="{chatbot_url}" width="100%" height="600" frameborder="0" allow="clipboard-write; clipboard-read"></iframe>
-    # """, unsafe_allow_html=True)
     
 
 # Page 4: Community Mapping
