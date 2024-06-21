@@ -255,7 +255,7 @@ def machine_learning_modeling():
     # st.markdown(f'<iframe src="{chatbot_url}" width="500" height="500"></iframe>', unsafe_allow_html=True)
     chatbot_url = "https://chatgpt.com/g/g-nNFl60CHs-community-rental-guide"
     st.markdown(f"""
-        <iframe src="{gpt_url}" width="100%" height="600" frameborder="0" allow="clipboard-write; clipboard-read"></iframe>
+        <iframe src="{chatbot_url}" width="100%" height="600" frameborder="0" allow="clipboard-write; clipboard-read"></iframe>
     """, unsafe_allow_html=True)
 
 def machine_learning_page():
@@ -304,7 +304,7 @@ def machine_learning_page():
     # st.markdown(f'<iframe src="{chatbot_url}" width="500" height="500"></iframe>', unsafe_allow_html=True)
     chatbot_url = "https://chatgpt.com/g/g-nNFl60CHs-community-rental-guide"
     st.markdown(f"""
-        <iframe src="{gpt_url}" width="100%" height="600" frameborder="0" allow="clipboard-write; clipboard-read"></iframe>
+        <iframe src="{chatbot_url}" width="100%" height="600" frameborder="0" allow="clipboard-write; clipboard-read"></iframe>
     """, unsafe_allow_html=True)
     
 
