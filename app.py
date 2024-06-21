@@ -296,7 +296,7 @@ def machine_learning_page():
 
     # Chat Box
     st.subheader("Have questions? Ask our Assistant!")
-    chatbot_url = "https://chatgpt.com/g/g-nNFl60CHs-community-rental-guide"
+    chatbot_url = "https://hf.co/chat/assistant/6618ba66044cc6a08eefa689"
     st.markdown(f'<iframe src="{chatbot_url}" width="500" height="500"></iframe>', unsafe_allow_html=True)
 
 # Page 4: Community Mapping
