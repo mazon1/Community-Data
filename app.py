@@ -8,11 +8,13 @@ import statsmodels
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
+from gradientai import Gradient
 
 #Set the environment variables from the st.secrets dict
+# Set the Gradient access token and workspace ID from secrets
 os.environ['GRADIENT_ACCESS_TOKEN'] = st.secrets["GRADIENT_ACCESS_TOKEN"]
 os.environ['GRADIENT_WORKSPACE_ID'] = st.secrets["GRADIENT_WORKSPACE_ID"]
-from gradientai import Gradient
+
 
 
 # Load the dataset with a specified encoding
