@@ -253,7 +253,8 @@ def machine_learning_modeling():
 
     # Chat Box
     st.subheader("Have questions? Ask our Assistant!")
-    chatbot_url = "https://hf.co/chat/assistant/6618ba66044cc6a08eefa689"
+    # chatbot_url = "https://hf.co/chat/assistant/6618ba66044cc6a08eefa689"
+    chatbot_url = "https://chatgpt.com/g/g-nNFl60CHs-community-rental-guide"
     st.markdown(f'<iframe src="{chatbot_url}" width="500" height="500"></iframe>', unsafe_allow_html=True)
 
 
