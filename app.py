@@ -9,6 +9,11 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
+#Set the environment variables from the st.secrets dict
+os.environ['GRADIENT_ACCESS_TOKEN'] = st.secrets["GRADIENT_ACCESS_TOKEN"]
+os.environ['GRADIENT_WORKSPACE_ID'] = st.secrets["GRADIENT_WORKSPACE_ID"]
+from gradientai import Gradient
+
 
 # Load the dataset with a specified encoding
 data = pd.read_csv('ontario_EDA.csv', encoding='latin1')
@@ -251,9 +256,33 @@ def machine_learning_modeling():
 
 
     # Chat Box
-    st.subheader("Have questions? Ask our Assistant!")
-    chatbot_url = "https://hf.co/chat/assistant/6618ba66044cc6a08eefa689"
-    st.markdown(f'<iframe src="{chatbot_url}" width="500" height="500"></iframe>', unsafe_allow_html=True)
+    # st.subheader("Have questions? Ask our Assistant!")
+    # chatbot_url = "https://hf.co/chat/assistant/6618ba66044cc6a08eefa689"
+    # st.markdown(f'<iframe src="{chatbot_url}" width="500" height="500"></iframe>', unsafe_allow_html=True)
+# Function to create and interact with the custom GPT model on GradientAI
+def get_model_response(user_input):
+    with Gradient() as gradient:
+        base_model = gradient.get_base_model(base_model_slug="nous-hermes2")
+        new_model_adapter = base_model.create_model_adapter(name="interactive_chatbot_model")
+
+        sample_query = f"### Instruction: {user_input} \n\n### Response:"
+        completion = new_model_adapter.complete(query=sample_query, max_generated_token_count=100).generated_output
+
+        # Delete the model adapter after generating the response
+        new_model_adapter.delete()
+
+    return completion
+
+def main():
+    # Streamlit title and description
+    st.title("Community Rental Information Assistant")
+    st.write("Get insights and information on rental properties in small communities.")
+
+    user_input = st.text_input("Ask your question about rental properties:")
+    if user_input and user_input.lower() not in ['quit', 'exit']:
+        response = get_model_response(user_input)
+        st.markdown(f"**Question:** {user_input}")
+        st.markdown(f"**Response:** {response}")
 
 def machine_learning_page():
     st.title("Rental Type Prediction")
@@ -296,9 +325,33 @@ def machine_learning_page():
         """, unsafe_allow_html=True)
 
     # Chat Box
-    st.subheader("Have questions? Ask our Assistant!")
-    chatbot_url = "https://hf.co/chat/assistant/6618ba66044cc6a08eefa689"
-    st.markdown(f'<iframe src="{chatbot_url}" width="500" height="500"></iframe>', unsafe_allow_html=True)
+    # st.subheader("Have questions? Ask our Assistant!")
+    # chatbot_url = "https://hf.co/chat/assistant/6618ba66044cc6a08eefa689"
+    # st.markdown(f'<iframe src="{chatbot_url}" width="500" height="500"></iframe>', unsafe_allow_html=True)
+# Function to create and interact with the custom GPT model with GradientAI
+def get_model_response(user_input):
+    with Gradient() as gradient:
+        base_model = gradient.get_base_model(base_model_slug="nous-hermes2")
+        new_model_adapter = base_model.create_model_adapter(name="interactive_chatbot_model")
+
+        sample_query = f"### Instruction: {user_input} \n\n### Response:"
+        completion = new_model_adapter.complete(query=sample_query, max_generated_token_count=100).generated_output
+
+        # Delete the model adapter after generating the response
+        new_model_adapter.delete()
+
+    return completion
+
+def main():
+    # Streamlit title and description
+    st.title("Community Rental Information Assistant")
+    st.write("Get insights and information on rental properties in small communities.")
+
+    user_input = st.text_input("Ask your question about rental properties:")
+    if user_input and user_input.lower() not in ['quit', 'exit']:
+        response = get_model_response(user_input)
+        st.markdown(f"**Question:** {user_input}")
+        st.markdown(f"**Response:** {response}")
     
 
 # Page 4: Community Mapping
