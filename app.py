@@ -11,9 +11,10 @@ from sklearn.metrics import accuracy_score
 from gradientai import Gradient
 
 #Set the environment variables from the st.secrets dict
-# Set the Gradient access token and workspace ID from secrets
-os.environ['GRADIENT_ACCESS_TOKEN'] = st.secrets["GRADIENT_ACCESS_TOKEN"]
-os.environ['GRADIENT_WORKSPACE_ID'] = st.secrets["GRADIENT_WORKSPACE_ID"]
+# Function to set environment variables
+def set_environment_variables():
+    os.environ['GRADIENT_ACCESS_TOKEN'] = st.secrets["GRADIENT_ACCESS_TOKEN"]
+    os.environ['GRADIENT_WORKSPACE_ID'] = st.secrets["GRADIENT_WORKSPACE_ID"]
 
 
 
@@ -262,6 +263,7 @@ def machine_learning_modeling():
     # chatbot_url = "https://hf.co/chat/assistant/6618ba66044cc6a08eefa689"
     # st.markdown(f'<iframe src="{chatbot_url}" width="500" height="500"></iframe>', unsafe_allow_html=True)
 # Function to create and interact with the custom GPT model on GradientAI
+set_environment_variables()  # Ensure environment variables are set
 def get_model_response(user_input):
     with Gradient() as gradient:
         base_model = gradient.get_base_model(base_model_slug="nous-hermes2")
@@ -331,6 +333,7 @@ def machine_learning_page():
     # chatbot_url = "https://hf.co/chat/assistant/6618ba66044cc6a08eefa689"
     # st.markdown(f'<iframe src="{chatbot_url}" width="500" height="500"></iframe>', unsafe_allow_html=True)
 # Function to create and interact with the custom GPT model with GradientAI
+set_environment_variables()  # Ensure environment variables are set
 def get_model_response(user_input):
     with Gradient() as gradient:
         base_model = gradient.get_base_model(base_model_slug="nous-hermes2")
